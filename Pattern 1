@@ -1,0 +1,44 @@
+
+/*
+       1
+      121
+     12321
+    1234321
+   123454321
+  12345654321
+ 1234567654321
+123456787654321 */
+
+#include<iostream>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+int main (){
+    int n ;
+    cin>>n;
+int x =1;
+for(int i =1; i<=n;i++){
+    for(int j =1; j<= n-i; j++){
+        cout<<" ";
+    }
+    int m =1;
+     for(int k =1;k<=(2*i-1); k++){
+        
+        if (k>i){
+            x =i;
+            x=x-m;
+            m +=1;
+        cout<<x;}
+        else{
+            cout<<x;
+            x++;
+        }
+        
+    }
+    x =1;
+    cout<<endl;
+}
+}
