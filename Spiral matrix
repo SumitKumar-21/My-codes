@@ -1,0 +1,38 @@
+ #include<iostream>
+#include<algorithm>
+#include<climits>
+using namespace std;
+vector<int> spiralmatrix(vector<vector<int>>& matrix){
+    vector<int> ans;
+    int rows=matrix.size();
+    int columns=matrix[0].size();
+    int startingrow=0;
+    int startingcolumn=0;
+    int endingrow=rows-1;
+    int endingcolumn=columns-1;
+    int count = rows*columns;
+    int x =0;
+    while(x<count ){
+        for(int cols=startingcolumn; cols<=endingcolumn && x<count;cols++){
+ans.push_back(matrix[startingrow][cols]);
+x =x+1;
+        }
+        startingrow++;
+        for(int row=startingrow; row<=endingrow && x<count;row++){
+            ans.push_back(matrix[row][endingcolumn]);
+        }
+        endingcolumn--;
+        for(int col= endingcolumn; col>=startingcolumn && x<count ; col--){
+                 ans.push_back(matrix[endingrow][col]);
+        }
+        endingrow--;
+for(int row=endingrow; row>=startingrow && x<count; row--){
+      ans.push_back(matrix[row][startingcolumn]);
+}
+startingcolumn++;
+
+    }
+    return ans;
+
+
+}
