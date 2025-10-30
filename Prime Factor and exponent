@@ -1,0 +1,65 @@
+/*
+Write a program to find all prime factors of a given number along with their exponents.
+*/
+bool checkprime(int n){
+    if (n==0 || n==1){
+        return false ;
+    }
+    for(int i =2;i<n;i++){
+        if (n%i==0){
+            return false;
+        }
+    }
+    return true;
+}
+int nextprime(int n){
+    for(int i=n+1; ;i++){
+        if(checkprime(i)){
+            return i;
+        }
+    }
+}
+void NumberOfOcc(vector<int> arr){
+int size= arr.size();
+bool visited[size]={false};
+int count=1;
+for(int i =0; i<size; i++){
+    if (visited[i]==true){
+        continue;
+    }
+    else{
+         for(int j =i+1;j<size; j++){
+            if (arr[i]==arr[j]){
+            count++;
+        visited[j]= true;
+        }
+         }
+    }
+    cout<<arr[i]<<"^"<<count<<endl;
+    count=1;
+
+}
+}
+int main(){
+    int n ;
+    cin>>n;
+    vector<int> arr;
+    int i =2;
+    while (n!=1){
+        if (n%i==0){
+            arr.push_back(i);
+             n = n/i;
+            i=2;
+           
+        }
+        else{
+            i = nextprime(i);
+        }
+    }
+    for(int i=0; i<arr.size();i++){
+        cout<<arr[i]<<" ";
+    }
+    cout<<endl<<"The prime factors are listed  below ( PrimeFactor^exponent) :"<<endl;
+    NumberOfOcc(arr);
+
+}
