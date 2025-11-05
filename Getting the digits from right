@@ -1,0 +1,24 @@
+
+void display_digit(int n){
+  if(n==0){
+    cout<<"0";
+    return;
+  }
+  if(n<0){
+    n = abs(n);
+  }
+  int digits= log10(n)+1;   // we can the number of the digits directly from this formula.
+  cout<<digits<<endl;;
+  for(int i=digits-1;i>=0;i--){
+int divisor=round(pow(10,i));  // pow(n, i) sometime give 999 , 99999, 99 such types of value to get exact 100, 100000 values we used round function
+int digit = n /divisor;
+
+cout<<digit<<"  ";
+n= n %divisor;
+  }
+}
+int main(){
+  int n;
+  cin>>n;
+  display_digit(n);
+}
