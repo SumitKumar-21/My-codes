@@ -39,7 +39,7 @@ AM or PM .
 //-----------------------------------------------------------------------------------------
 
 /*
-Write a program to find all prime factors of a given number along with their exponents.
+7. Write a program to find all prime factors of a given number along with their exponents.
 */
 // bool checkprime(int n){
 //     if (n==0 || n==1){
@@ -105,7 +105,7 @@ Write a program to find all prime factors of a given number along with their exp
  //-------------------------------------------------------------------------------------------
 
  /*
- Develop a recursive function for towers of Hanoi problem
+8.  Develop a recursive function for towers of Hanoi problem
  */
 
  //-------------------------------------------------------------------------------------------- 
@@ -168,7 +168,7 @@ elements of the other list (array) to C.
 //----------------------------------------------------------------------------------
 
 /*
-Create an array called polynomial and perform the following operations:
+13. Create an array called polynomial and perform the following operations:
 (i)Addition of two polynomials (ii) Subtraction of two polynomials
 (iii) Multiplication of two polynomials.
 */
@@ -183,7 +183,7 @@ Create an array called polynomial and perform the following operations:
 //   add[i]=arr[i]+brr[i];
 // }
 //   else if(i<n){
-//     add[i]=arr[i]
+//     add[i]=arr[i];
 //   }
 //   else{
 //     add[i]=brr[i];
@@ -212,7 +212,7 @@ Create an array called polynomial and perform the following operations:
 //     if(i<n && i<m){
 //   sub[i]=arr[i]-brr[i];}
 //   else if(i<n){
-//     sub[i]=arr[i]
+//     sub[i]=arr[i];
 //   }
 //   else{
 //     sub[i]=brr[i];
@@ -225,6 +225,30 @@ Create an array called polynomial and perform the following operations:
 //     }
 //     else{
 //   cout<<sub[i]<<"x^"<<i<<"+";
+//   }
+// }
+// }
+// void productPoly(int arr[], int brr[], int n, int m ){
+//   int maxdegree=n;
+//   if(m> maxdegree){
+//     maxdegree=m;
+//   }
+//    int Pro[n*m+1]={0};
+//    for(int i=0;i<n;i++){
+//     if(i==0){
+//       continue;
+//     }
+//     for(int j =0; j<m;j++){
+// Pro[(i+1)*(j+1)-1]=Pro[(i+1)*(j+1)-1]+arr[i]*brr[j];
+//     }
+//    }
+//     cout<<"P(X)xQ(X)=";
+//     for(int i =(n-1)*(m-1); i>=0; i--){
+//     if(i==0){
+//       cout<<Pro[0];
+//     }
+//     else{
+//   cout<<Pro[i]<<"x^"<<i<<"+";
 //   }
 // }
 // }
@@ -270,7 +294,8 @@ Create an array called polynomial and perform the following operations:
 // addpoly(arr,brr,n ,m );
 // cout<<endl;
 // subpoly(arr,brr,n ,m );
-
+// cout<<endl;
+// productPoly(arr,brr,n+1,m+1 );
 
 // }
 
@@ -284,6 +309,159 @@ Transpose (iv) Inverse (vi) Matrix to lower triangle and upper triangle form (vi
 elements (viii) Saddle point and also find how many saddle points in the given matrix(minimum
 in row and maximum in column)
 */
+// int maxINcols(int j,int n,int c, int mat[][c]){
+//     int x = mat[0][j];
+// int row =0;
+// for(int i=1; i<n;i++){
+
+//   if (mat[i][j]>x){
+//     x = mat[i][j];
+//     row =i;
+//   }
+// }
+// return row;
+// }
+// int minrow(int row, int cols,int c ,int mat[][c]){
+//   int minrow=mat[row][0];
+//   int col=0;
+// for(int i=1;i<cols;i++){
+// if(mat[row][i]>minrow){
+//   col=i;
+//   minrow=mat[row][i];
+// }
+// }
+// return col;
+// }
+
+// int main(){
+// int n1,m1;
+// cout<<"Enter the order of the first matrix: "<<endl;
+// cin>>n1>>m1;
+// int mat1[n1][m1];
+// cout<<"Enter the elements of the martrix:"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//     cin>>mat1[i][j];
+//   }
+// }
+// int n2,m2;
+// cout<<"Enter the order of the second matrix: "<<endl;
+// cin>>n2>>m2;
+
+// int mat2[n2][m2];
+// cout<<"Enter the elements of the martrix:"<<endl;
+// for(int i=0; i<n2;i++){
+//   for(int j=0; j<m2;j++){
+//     cin>>mat2[i][j];
+//   }
+// }
+
+// int add[n1][m2];
+// cout<<"The first given matrix is :"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//    cout<<mat1[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+// cout<<"The second given matrix is :"<<endl;
+// for(int i=0; i<n2;i++){
+//   for(int j=0; j<m2;j++){
+//    cout<<mat2[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+
+// if(n1!=n2 || m1!=m2){
+//   cout<<"The matrix cannot be added because the order of both the matrices are not same"<<endl;
+// }
+// else{
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//     add[i][j]=mat1[i][j]+mat2[i][j];
+//   }
+// }
+// cout<<"The sum of the two matrix mat1+mat2 is:"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//    cout<<add[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }}
+// if(m1!=n2){
+//   cout<<"both the matrixes cannot be multiplied because number of column of first matrix is not equal to number of row of second matrix"<<endl;
+// }
+// else{
+// int mult[n1][m2];
+// for(int i=0; i<n1;i++){
+//   for(int j =0; j<m2;j++){
+//     int sum=0;
+//     for(int k =0;k<m1;k++){
+//       sum =sum+(mat1[i][k]*mat2[k][j]);
+//     }
+//     mult[i][j]= sum;
+//   }
+// }
+// cout<<"The product of the two matrix is :"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m2;j++){
+//    cout<<mult[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+
+// }
+
+// int Tmat1[m1][n1];
+// int Tmat2[m2][n2];
+// for(int i=0; i<m1;i++){
+//   for(int j =0; j<n1; j++){
+//     Tmat1[i][j]= mat1[j][i];
+//   }
+// }
+// for(int i=0; i<m2;i++){
+//   for(int j =0; j<n2; j++){
+//     Tmat2[i][j]= mat2[j][i];
+//   }
+// }
+// cout<<"The Transpose of first  matrix is :"<<endl;
+// for(int i=0; i<m1;i++){
+//   for(int j=0; j<n1;j++){
+//    cout<<Tmat1[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+// cout<<"The product of the two matrix is :"<<endl;
+// for(int i=0; i<m2;i++){
+//   for(int j=0; j<n2;j++){
+//    cout<<Tmat2[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+
+// // saddle point in first matrix
+//  int saddle=0;
+
+//  for(int i=0; i<n1; i++){
+//   int cols=minrow(i,m1,mat1);
+//   int rows= maxINcols(cols,n1,mat1);
+//   if(i=rows){
+//     saddle++;
+//     cout<<mat1[i][j]<<" ";
+//   }
+//   }
+//   if(saddle==0){
+//     cout<<"There is no saddle points"<<endl;
+//   }
+//  }
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 /*
 QN.16 Write program for big number arithmetic. (Addition, Subtraction and Multiplication)
@@ -368,7 +546,7 @@ QN.16 Write program for big number arithmetic. (Addition, Subtraction and Multip
 // }
 
 
-// -----------------------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
 20. Write a program to search for a given sub string inside a given string. If it is found in the string,
 then print the positions of all the occurrences.
@@ -412,7 +590,7 @@ then print the positions of all the occurrences.
 // }
  
   
-//-------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 /*
 21. Write a program that reads multiple lines of text and finds the frequencies of characters and words.
 */
@@ -426,149 +604,9 @@ then print the positions of all the occurrences.
 
 
 // }
-
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------
+//GCD BY RESURSION 
 /*
-14. Write a program to perform following matrix operations : (i) Addition (ii) Multiplication (iii)
-Transpose (iv) Inverse (vi) Matrix to lower triangle and upper triangle form (vii) Tri-diagonal
-elements (viii) Saddle point and also find how many saddle points in the given matrix(minimum
-in row and maximum in column)
-*/
-int maxINcols(int j, int n , int mat[][]){
-    int x = mat[0][j];
-int row =0;
-for(int i=1; i<n;i++){
-
-  if (mat[i][j]>x){
-    x = mat[i][j];
-    row =i;
-  }
-}
-return row;
-}
-
-int main(){
-int n1,m1;
-cout<<"Enter the order of the first matrix: "<<endl;
-cin>>n1>>m1;
-int mat1[n1][m1];
-cout<<"Enter the elements of the martrix:"<<endl;
-for(int i=0; i<n1;i++){
-  for(int j=0; j<m1;j++){
-    cin>>mat1[i][j];
-  }
-}
-int n2,m2;
-cout<<"Enter the order of the second matrix: "<<endl;
-cin>>n2>>m2;
-
-int mat2[n2][m2];
-cout<<"Enter the elements of the martrix:"<<endl;
-for(int i=0; i<n2;i++){
-  for(int j=0; j<m2;j++){
-    cin>>mat2[i][j];
-  }
-}
-
-int add[n1][m2];
-cout<<"The first given matrix is :"<<endl;
-for(int i=0; i<n1;i++){
-  for(int j=0; j<m1;j++){
-   cout<<mat1[i][j]<<" ";
-  }
-  cout<<endl;
-}
-cout<<endl;
-cout<<"The second given matrix is :"<<endl;
-for(int i=0; i<n2;i++){
-  for(int j=0; j<m2;j++){
-   cout<<mat2[i][j]<<" ";
-  }
-  cout<<endl;
-}
-cout<<endl;
-
-if(n1!=n2 || m1!=m2){
-  cout<<"The matrix cannot be added because the order of both the matrices are not same"<<endl;
-}
-else{
-for(int i=0; i<n1;i++){
-  for(int j=0; j<m1;j++){
-    add[i][j]=mat1[i][j]+mat2[i][j];
-  }
-}
-cout<<"The sum of the two matrix mat1+mat2 is:"<<endl;
-for(int i=0; i<n1;i++){
-  for(int j=0; j<m1;j++){
-   cout<<add[i][j]<<" ";
-  }
-  cout<<endl;
-}}
-if(m1!=n2){
-  cout<<"both the matrixes cannot be multiplied because number of column of first matrix is not equal to number of row of second matrix"<<endl;
-}
-else{
-int mult[n1][m2];
-for(int i=0; i<n1;i++){
-  for(int j =0; j<m2;j++){
-    int sum=0;
-    for(int k =0;k<m1;k++){
-      sum =sum+(mat1[i][k]*mat2[k][j]);
-    }
-    mult[i][j]= sum;
-  }
-}
-cout<<"The product of the two matrix is :"<<endl;
-for(int i=0; i<n1;i++){
-  for(int j=0; j<m2;j++){
-   cout<<mult[i][j]<<" ";
-  }
-  cout<<endl;
-}
-cout<<endl;
-
-}
-
-int Tmat1[m1][n1];
-int Tmat2[m2][n2];
-for(int i=0; i<m1;i++){
-  for(int j =0; j<n1; j++){
-    Tmat1[i][j]= mat1[j][i];
-  }
-}
-for(int i=0; i<m2;i++){
-  for(int j =0; j<n2; j++){
-    Tmat2[i][j]= mat2[j][i];
-  }
-}
-cout<<"The Transpose of first  matrix is :"<<endl;
-for(int i=0; i<m1;i++){
-  for(int j=0; j<n1;j++){
-   cout<<Tmat1[i][j]<<" ";
-  }
-  cout<<endl;
-}
-cout<<endl;
-cout<<"The product of the two matrix is :"<<endl;
-for(int i=0; i<m2;i++){
-  for(int j=0; j<n2;j++){
-   cout<<Tmat2[i][j]<<" ";
-  }
-  cout<<endl;
-}
-cout<<endl;
-
-// saddle point
- int saddle=0;
- for(int i=0; i<n1; i++){
-  int cols=minrow(i,m1);
-  int rows= maxINcol(cols,n1);
-  if(i=row){
-    saddle++;
-    cout<<mat1[i][j]<<" ";
-  }
-  }
- }
-
 #include<iostream>
 #include<string>
 using namespace std;
@@ -594,3 +632,4 @@ cout<<ans;
 cout<<"LCM(a,b)="<<a*b/ans;
 
 }
+*/
