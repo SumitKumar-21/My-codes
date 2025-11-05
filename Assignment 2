@@ -466,84 +466,88 @@ in row and maximum in column)
 /*
 QN.16 Write program for big number arithmetic. (Addition, Subtraction and Multiplication)
 */
-// string addTheNumber(string n1,string n2){
-//   int carry =0;
-//   int n = n1.length();
-//   int m = n2.length();
-//   int k =n-1;
-//   int l =m-1;
-//   int maxsize=n;
-//   if (m>n){
-//     maxsize=m;
-//   }
-//   string add;
-//   while (k>=0|| l>=0 || carry){
-//     int a =0; int b=0;
-//     if(k>=0){
-//       a = n1[k]-'0';
-//       k--;
-//     }
-//     if(l>=0){
-//       b = n2[l]-'0';
-//       l--;
-//     }
+string addTheNumber(string n1,string n2){
+  int carry =0;
+  int n = n1.length();
+  int m = n2.length();
+  int k =n-1;
+  int l =m-1;
+  int maxsize=n;
+  if (m>n){
+    maxsize=m;
+  }
+  string add;
+  while (k>=0|| l>=0 || carry){
+    int a =0; int b=0;
+    if(k>=0){
+      a = n1[k]-'0';
+      k--;
+    }
+    if(l>=0){
+      b = n2[l]-'0';
+      l--;
+    }
     
-//     int sum= a+b+carry;
-//     if(sum>9){
-//       carry=1;
-//     }
-//     else{
-//       carry=0;
-//     }
-//     int reportingDigit= sum%10;
-// add.push_back(reportingDigit + '0');
-// reverse(add.begin(), add.end());
+    int sum= a+b+carry;
+    if(sum>9){
+      carry=1;
+    }
+    else{
+      carry=0;
+    }
+    int reportingDigit= sum%10;
+add.push_back(reportingDigit + '0');
 
-//   }
-// return add;
-// }
-// string subTheNumber(string n1,string n2){
-//   int carry =0;
-//   int n = n1.length();
-//   int m = n2.length();
-//   int k =n-1;
-//   int l =m-1;
-//   int maxsize=n;
-//   if (m>n){
-//     maxsize=m;
-//   }
-//   string add;
-//   while (k>=0|| l>=0 || carry){
-//     int a =0; int b=0;
-//     if(k>=0){
-//       a = n1[k]-'0';
-//       k--;
-//     }
-//     if(l>=0){
-//       b = n2[l]-'0';
-//       l--;
-//     }
+
+  }
+  reverse(add.begin(), add.end());
+return add;
+}
+string subTheNumber(string n1,string n2){
+  int carry =0;
+  int n = n1.length();
+  int m = n2.length();
+  int k =n-1;
+  int l =m-1;
+  int maxsize=n;
+  if (m>n){
+    maxsize=m;
+  }
+  string sub;
+  while (k>=0|| l>=0||carry){
+    int a =0; int b=0;
+    if(k>=0){
+      a = n1[k]+carry-'0';
+      k--;
+    }
+    if(l>=0){
+      b = n2[l]-'0';
+      l--;
+    }
     
-//     int sum= a+b+carry;
-//     if(sum>9){
-//       carry=1;
-//     }
-//     else{
-//       carry=0;
-//     }
-//     int reportingDigit= sum%10;
-// add.push_back(reportingDigit + '0');
-// reverse(add.begin(), add.end());
-
-//   }
-// return add;
-// }
-// int main(){
-//   string s1= "12367464876348";
-//   string s2= "12367464876348";
-//   string sum = addTheNumber(s1,s2);
-//   cout<<"The sum of n1 and n2 is:"<<sum<<endl;
-// }
+  if(a>=b){
+    sub.push_back(a-b+ '0');
+    carry=0;
+  }
+  if( a<b){
+    sub.push_back((a+10-b)+'0');
+    carry=-1;
+  }
+  }
+  reverse(sub.begin(), sub.end());
+return sub;
+}
+int main(){
+  cout<<"Enter the two numbers such that n1>=n2:"<<endl;
+  string s1;
+  string s2;
+  cin>>s1;
+  cin>>s2;
+  string sum = addTheNumber(s1,s2);
+  cout<<"The sum of n1 and n2 is:"<<sum;
+  string diff=subTheNumber(s1,s2);
+  cout<<" and the difference of the two number is"<<diff;
+}
 
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------
