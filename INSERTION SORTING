@@ -1,13 +1,13 @@
 // Elements gets sorted from left side
 
 
-void insertionSorting(int arr[],int n){
-    for(int i =1; i<=n-1;i++){
-        int x = arr[i];
-        int j=i-1;
-for(;j>=0;j--){
-if(arr[j]>x){
- arr[j+1]=arr[j];
+void insertionSorting(int arr[],int n){  
+    for(int i =1; i<=n-1;i++){  //i --> accessing the array of index i  Running the loop for all elements from index one to n-1
+        int x = arr[i];    // storing arr[i] because we need empty space to shift the element to next index if it is found greater then x
+        int j=i-1;        
+for(;j>=0;j--){         // we need to check the sorted part of the array in reverse order 
+if(arr[j]>x){      // Here we are shifting the elements onthe spot if found greater then x , not shifting all the greater elements at  time if we want do this we need one more loop ..
+ arr[j+1]=arr[j];      
 }
 else{
     break;
