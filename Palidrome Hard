@@ -2,13 +2,13 @@
 #include <bits/stdc++.h> 
 using namespace std;
 string LowerTOuppercase(string ch){    // converting all the character into lowwercase and removing special character and spaces
-    string copy;
+    string copy;                                 // **** COPY IS STRING 
     for(int i =0; i<= ch.length();i++){
     if(ch[i]>='a'&& ch[i]<='z'){
        copy.push_back(ch[i]) ;
     }
     else if (ch[i]>='A' && ch[i]<='Z'){
-     copy.push_back(ch[i]-'A'+'a');
+     copy.push_back(ch[i]-'A'+'a');        //UPPERCASE TO LOWERCASE
     }
     else if (ch[i]>='0' && ch[i]<= '9'){
        copy.push_back(ch[i]) ;
