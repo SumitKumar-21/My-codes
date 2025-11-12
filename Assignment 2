@@ -637,3 +637,21 @@ cout<<"LCM(a,b)="<<a*b/ans;
 
 }
 */
+
+Tower Of Hanoii */
+void TOH(int n , string scr, string hel, string des){
+  int count=0;
+  if(n==1){
+    cout<<"Transfer the disc1 from "<<scr<<" to "<<des<<endl;
+    return;
+  }
+ TOH(n-1,scr,des,hel);
+ cout<<"Transfer the disc"<<n<<" from "<<scr<<" to "<<des<<endl;
+ TOH(n-1,hel,scr,des);
+}
+int main(){
+  int n;
+  cout<<" Enter the number of disc:"<<endl;
+  cin>>n;
+  TOH(n,"S","H","D");
+}
