@@ -14,12 +14,12 @@ int complement_of_Number(int n){
     int a =~n;
     int mask=0;
     int digit=0;
-    while(n!=0){
+    while(n!=0){   // GETTING THE NUMBER OF SIGNIFICANT DIGIT IN BINARY OF N 
      digit+=1;
      n= n>>1;
     }
     for(int i =1; i <=digit; i++){
-        mask = (mask<<1)  | 1;
+        mask = (mask<<1)  | 1;  // making the mask like 11111 or 1111 or 11 or 11111 depending on the digit
     }
     int result = a & mask;
 return result;
