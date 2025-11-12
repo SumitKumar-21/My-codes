@@ -655,3 +655,47 @@ int main(){
   cin>>n;
   TOH(n,"S","H","D");
 }
+//--------------------------------------------------------------------------------------------------------
+/*
+Write a c++ program to create a structure student with the data fields; Name, rollno, address and
+marks in 3 subjects for 10 students and display all the students details.. */
+
+//class vote{
+// public:
+// int roll;
+// int age;
+// string name;
+// void display(){
+//     cout<<"Name:"<<name<<endl;
+//     cout<<"Roll Number :"<<roll<<endl;
+//     cout<<"age:"<<age<<endl;
+//     if(age>=18){
+//         cout<<"Eligible for voting"<<endl;
+//     }
+// }
+// };
+// int main(){
+//     int n ;
+//     cout<<"enter the number of voters:";
+//     cin>>n;
+//     vote v[n];
+//     for(int i =0; i<n;i++){
+// cout<<"-----Voter"<<i+1<<"-----"<<endl;
+// cout<<"enter the name:";
+// cin.ignore();
+// getline(cin,v[i].name);
+// cout<<"enter the Roll no:";
+// cin>>v[i].roll;
+// cout<<"enter the age:";
+// cin>>v[i].age;
+//     }
+// for(int i=0; i<n;i++){
+//     cout<<"-----Voter"<<i+1<<"------"<<endl;
+//     v[i].display();
+// }
+
+
+// }
+/*
+
+//-------------------------------------------------------------------------------------------------------
