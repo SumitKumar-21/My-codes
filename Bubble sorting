@@ -1,6 +1,6 @@
 void bubbleSorting(int arr[],int n){
-    for(int i =0; i<n-1;i++){ // here i is number of steps  // n-1 because after sorting the elements upto index n-2 , the last elements gets automatic sorted
-for(int j=0;j<=n-1-i;j++){          // n-1 because in bubble sorting the elements gets sorted from right i.e in each step one element from the right gets sorted 
+    for(int i =0; i<=n-1;i++){ // here i is number of steps  // n-1 because after sorting the elements upto index n-2 , the last elements gets automatic sorted
+for(int j=0;j<n-1-i;j++){  // j --> accessing the array  // n-1 because in bubble sorting the elements gets sorted from right i.e in each step one element from the right gets sorted 
 if(arr[j]>arr[j+1]){    //
   swap(arr[j],arr[j+1]);
 }
