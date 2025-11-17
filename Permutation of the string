@@ -1,0 +1,30 @@
+class Solution {
+public:
+bool isFreqsame(int fre1[], int  fre2[]){
+    for(int i =0 ; i<26;i++){
+        if(fre1[i]!=fre2[i]){
+            return false;
+        }
+    }
+    return true;
+}
+    bool checkInclusion(string s1, string s2) {
+        int freq[26]={0};
+        for(int i =0; i<s1.length(); i++){
+            freq[s1[i]-'a']++;
+        }
+        
+int windsize=s1.length();
+for(int i =0 ;i<s2.length();i++){
+         int windfreq[26]={0};
+for(int k =i;(k-i<windsize&&k<s2.length());k++){
+     windfreq[s2[k]-'a']++;
+}
+if(isFreqsame(windfreq,freq)){
+    return true;
+}
+  
+}
+return false;
+    }
+};
