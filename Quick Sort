@@ -1,0 +1,34 @@
+int partition(int arr[],int s, int e){
+    int count =0;
+    int pivot= arr[s];
+    for(int i =s+1;i<=e;i++){
+        if(arr[i]<=pivot){
+            count++;
+        }
+    }
+    int pivotindex= s+count;
+    swap(arr[pivotindex],arr[s]);
+    int left= s;
+    int right=e;
+    while(left<pivotindex && right>pivotindex){
+        while(arr[left]<=pivot){
+            left++;
+        }
+        while(arr[right]>pivot){
+            right--;
+        }
+        if(left<pivotindex && right>pivotindex){
+        swap(arr[left++],arr[right--]);}
+    }
+    return pivotindex;
+
+
+}
+void quicksort(int arr[], int s, int e){
+    if(s>=e){
+        return ;
+    }
+    int p = partition(arr,s,e);
+    quicksort(arr,s,p);
+    quicksort(arr,p+1,e);
+}
