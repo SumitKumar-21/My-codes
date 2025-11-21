@@ -1,0 +1,52 @@
+/*
+Write a program to read the content from a text file IN.TXT, count the number of alphabets, digits
+and special characters present in it and write these information into a text file OUT.TXT.
+*/
+
+#include<iostream>
+#include<fstream>
+#include<string>
+using namespace std;
+int main(){
+    string input;
+    cout<<"Enter the sentence you wnat to store in the txt file"<<endl;
+    getline(cin,input);
+ofstream inputfile("IN.TXT"); // object and the file created
+inputfile<<input;
+inputfile.close();
+// fstream add("IN.txt",ios::app);
+// add<<"I am understanding I/O file handling\n";
+// add.close();
+int alphabets=0;
+int digits=0;
+int sp=0;
+ifstream outfile("IN.txt");
+char ch;
+while(outfile.get(ch)){
+    if((ch>='a'&&ch<='z') || (ch>='A'&&ch<='Z')){
+        alphabets++;
+    }
+    else if(ch>='0'&& ch<='9'){
+        digits++;
+    }
+    else {
+sp++;
+    }
+}
+outfile.close();
+
+ofstream output("out.txt");
+output<<"Number of alphabets in the Input file is:"<<alphabets<<"\n";
+output<<"NUmber of digits int he input file is :"<<digits<<"\n";
+output<<"Number of special character in the input file is :"<<sp<<"\n";
+output.close();
+ifstream readoutput("out.txt");
+    string line ;
+    while(getline(readoutput,line)){
+        cout<<line<<endl;
+    }
+readoutput.close();
+
+cout<<"Successfully DONE"<<endl;
+
+}
