@@ -1,0 +1,795 @@
+
+#include<iostream>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <algorithm>
+#include<string>
+using namespace std;
+// -----------------------------------------------------------------------------------------
+/*
+QN.4 Write a program that converts from 24-hour notation to 12-hour notation. For example , it should
+convert 14:25 to 2:25PM.The input is given as two integers. There should be at least three
+functions, one for input, one to do the conversion and one for output. Record the AM/PM
+information as a value of type char , ‘A’ for AM and char ‘P’ for PM . Thus the function for doing
+the conversions will have a call-by-reference formal parameter of type char to record whether it is
+AM or PM .
+*/
+
+// void conversion(int hours, int min){
+//     if ( hours<12 && hours>0){
+//        cout<<hours<<":"<<min<<"AM";
+//     }
+//     else if(hours==00){
+//     cout<<"12:"<<min<<"AM";
+//     }
+//     else if( hours>12){
+//         cout<<(hours-12)<<":"<<min<<"PM";
+//     }
+//     else {
+//         cout<<hours<<":"<<min<<"PM";
+//     }
+// }
+// int main(){
+//     int hours,min;
+//     cin>>hours;
+//     cin>>min;
+//     // input(hours,min);
+//     conversion(hours,min);
+// }
+//-----------------------------------------------------------------------------------------
+
+/*
+Write a program to find all prime factors of a given number along with their exponents.
+*/
+// bool checkprime(int n){
+//     if (n==0 || n==1){
+//         return false ;
+//     }
+//     for(int i =2;i<n;i++){
+//         if (n%i==0){
+//             return false;
+//         }
+//     }
+//     return true;
+// }
+// int nextprime(int n){
+//     for(int i=n+1; ;i++){
+//         if(checkprime(i)){
+//             return i;
+//         }
+//     }
+// }
+// void NumberOfOcc(vector<int> arr){
+// int size= arr.size();
+// bool visited[size]={false};
+// int count=1;
+// for(int i =0; i<size; i++){
+//     if (visited[i]==true){
+//         continue;
+//     }
+//     else{
+//          for(int j =i+1;j<size; j++){
+//             if (arr[i]==arr[j]){
+//             count++;
+//         visited[j]= true;
+//         }
+//          }
+//     }
+//     cout<<arr[i]<<"^"<<count<<endl;
+//     count=1;
+
+// }
+// }
+// int main(){
+//     int n ;
+//     cin>>n;
+//     vector<int> arr;
+//     int i =2;
+//     while (n!=1){
+//         if (n%i==0){
+//             arr.push_back(i);
+//              n = n/i;
+//             i=2;
+           
+//         }
+//         else{
+//             i = nextprime(i);
+//         }
+//     }
+//     for(int i=0; i<arr.size();i++){
+//         cout<<arr[i]<<" ";
+//     }
+//     cout<<endl<<"The prime factors are listed  below ( PrimeFactor^exponent) :"<<endl;
+//     NumberOfOcc(arr);
+// }
+ //-------------------------------------------------------------------------------------------
+
+ /*
+ Develop a recursive function for towers of Hanoi problem
+ */
+
+ //-------------------------------------------------------------------------------------------- 
+  /* 
+  12. Let A and B be two arrays. Write a function to create a new array C that contains elements
+alternately from A and B beginning with the first element of A. Use pointer to access the elements
+from the array C. If you run out of elements in one of the lists (arrays), then append the remaining
+elements of the other list (array) to C.
+  */
+
+//   int main(){
+//     int n1, n2;
+//     cout<<"Enter the size of the two array :"<<endl;
+// cin >>n1>>n2;
+//  int arr[n1];
+//     int brr[n2];
+// cout<<"Enter the elements of the  first array: "<<endl;
+// for(int i =0 ; i<n1;i++){
+//   cin>>arr[i];
+// }
+// for(int i =0 ; i<n2;i++){
+//   cin>>brr[i];
+// }
+//     int x = n1;
+//     if(n1<n2){
+// x=n2;
+//     }
+//     int crr[n1+n2];
+//     int i=0 , j=0 , k=0;
+//      while(i<=x){
+//         if(i%2==0){
+//           crr[i]=arr[j];
+//           j++;
+//         }
+//         else{
+//           crr[i]=brr[k];
+//           k++;
+//         }
+//         i++;
+           
+//      }
+//      if(n1>n2){
+//      for(;i<n1+n2-1;i++){
+//       crr[i]= arr[j];
+//       j++;
+    
+//     } }
+//      if(n1<n2){
+//      for(;i<n1+n2-1;i++){
+//       crr[i]= brr[k];
+//       k++;
+    
+//     }
+//      }
+// for(int i=0; i<=n1+n2-2;i++){
+//     cout<<crr[i]<<" ";
+//   }
+// }
+
+//----------------------------------------------------------------------------------
+
+/*
+Create an array called polynomial and perform the following operations:
+(i)Addition of two polynomials (ii) Subtraction of two polynomials
+(iii) Multiplication of two polynomials.
+*/
+// void addpoly(int arr[], int brr[] , int n , int m ){
+//   int maxdegree=n;
+//   if(m> maxdegree){
+//     maxdegree=m;
+//   }
+//   int add[maxdegree];
+//   for(int i=0; i<maxdegree;i++){
+//     if(i<n && i<m){
+//   add[i]=arr[i]+brr[i];
+// }
+//   else if(i<n){
+//     add[i]=arr[i];
+//   }
+//   else{
+//     add[i]=brr[i];
+//   }
+//   }
+//   cout<<"P(x)+Q(x)=";
+//     for(int i =maxdegree; i>=0; i--){
+//       if(add[i]==0){
+//         continue;
+//       }
+//     if(i==0){
+//       cout<<add[0];
+//     }else{
+//   cout<<add[i]<<"x^"<<i<<"+";
+//   }
+// }
+// }
+
+// void subpoly(int arr[], int brr[] , int n , int m ){
+//   int maxdegree=n;
+//   if(m> maxdegree){
+//     maxdegree=m;
+//   }
+//    int sub[maxdegree];
+//   for(int i=0; i<maxdegree;i++){
+//     if(i<n && i<m){
+//   sub[i]=arr[i]-brr[i];}
+//   else if(i<n){
+//     sub[i]=arr[i];
+//   }
+//   else{
+//     sub[i]=brr[i];
+//   }
+//   }
+//   cout<<"P(x)-Q(x)=";
+//     for(int i =maxdegree; i>=0; i--){
+//     if(i==0){
+//       cout<<sub[0];
+//     }
+//     else{
+//   cout<<sub[i]<<"x^"<<i<<"+";
+//   }
+// }
+// }
+// void productPoly(int arr[], int brr[], int n, int m ){
+//   int maxdegree=n;
+//   if(m> maxdegree){
+//     maxdegree=m;
+//   }
+//    int Pro[n*m+1]={0};
+//    for(int i=0;i<n;i++){
+//     if(i==0){
+//       continue;
+//     }
+//     for(int j =0; j<m;j++){
+// Pro[(i+1)*(j+1)-1]=Pro[(i+1)*(j+1)-1]+arr[i]*brr[j];
+//     }
+//    }
+//     cout<<"P(X)xQ(X)=";
+//     for(int i =(n-1)*(m-1); i>=0; i--){
+//     if(i==0){
+//       cout<<Pro[0];
+//     }
+//     else{
+//   cout<<Pro[i]<<"x^"<<i<<"+";
+//   }
+// }
+// }
+
+// int main (){
+//   int n,m ;
+//   cout<<"enter the degree of the first polynomial"<<endl;
+//   cin>>n;
+//    cout<<"enter the degree of the second polynomial"<<endl;
+//   cin>>m;
+//   int arr[n+1];
+//   int brr[m+1];
+//   for(int i =0; i<=n; i++){
+//     cout<<"Enter the coefficients of the term of the first polynomial--> x^"<<i<<":";
+//     cin>>arr[i];
+//   }
+//    for(int i =0; i<=m; i++){
+//     cout<<"Enter the coefficients of the term of the second polynomial x^"<<i<<":";
+//     cin>>brr[i];
+//   }
+//   cout<<endl;
+//   cout<<"P(x)=";
+//    for(int i =n; i>=0; i--){
+//     if(i==0){
+//       cout<<arr[0];
+//     }
+//     else{
+//   cout<<arr[i]<<"x^"<<i<<"+";
+//   }
+// }
+// cout<<endl;
+// cout<<"Q(x)=";
+//    for(int i =m; i>=0; i--){
+//     if(i==0){
+//       cout<<brr[0];
+//     }else{
+//   cout<<brr[i]<<"x^"<<i<<"+";
+//   }
+// }
+// cout<<endl;
+
+//     cout<<endl;
+// addpoly(arr,brr,n ,m );
+// cout<<endl;
+// subpoly(arr,brr,n ,m );
+// cout<<endl;
+// productPoly(arr,brr,n+1,m+1 );
+
+// }
+
+
+//-----------------------------------------------------------------------------------------
+
+
+/*
+QN.16 Write program for big number arithmetic. (Addition, Subtraction and Multiplication)
+
+string addTheNumber(string n1,string n2){
+  int carry =0;
+  int n = n1.length();
+  int m = n2.length();
+  int k =n-1;
+  int l =m-1;
+  int maxsize=n;
+  if (m>n){
+    maxsize=m;
+  }
+  string add;
+  while (k>=0|| l>=0 || carry){
+    int a =0; int b=0;
+    if(k>=0){
+      a = n1[k]-'0';
+      k--;
+    }
+    if(l>=0){
+      b = n2[l]-'0';
+      l--;
+    }
+    
+    int sum= a+b+carry;
+    if(sum>9){
+      carry=1;
+    }
+    else{
+      carry=0;
+    }
+    int reportingDigit= sum%10;
+add.push_back(reportingDigit + '0');
+
+
+  }
+  reverse(add.begin(), add.end());
+return add;
+}
+string subTheNumber(string n1,string n2){
+  int carry =0;
+  int n = n1.length();
+  int m = n2.length();
+  int k =n-1;
+  int l =m-1;
+  int maxsize=n;
+  if (m>n){
+    maxsize=m;
+  }
+  string sub;
+  while (k>=0|| l>=0||carry){
+    int a =0; int b=0;
+    if(k>=0){
+      a = n1[k]+carry-'0';
+      k--;
+    }
+    if(l>=0){
+      b = n2[l]-'0';
+      l--;
+    }
+    
+  if(a>=b){
+    sub.push_back(a-b+ '0');
+    carry=0;
+  }
+  if( a<b){
+    sub.push_back((a+10-b)+'0');
+    carry=-1;
+  }
+  }
+  reverse(sub.begin(), sub.end());
+return sub;
+}
+int main(){
+  cout<<"Enter the two numbers such that n1>=n2:"<<endl;
+  string s1;
+  string s2;
+  cin>>s1;
+  cin>>s2;
+  string sum = addTheNumber(s1,s2);
+  cout<<"The sum of n1 and n2 is:"<<sum;
+  string diff=subTheNumber(s1,s2);
+  cout<<" and the difference of the two number is"<<diff;
+}
+*/
+
+// -----------------------------------------------------------------------------------------------
+/*
+20. Write a program to search for a given sub string inside a given string. If it is found in the string,
+then print the positions of all the occurrences.
+*/
+// int main(){
+//   string s1;
+//   string s2;
+//   cout<<"Enter the string:"<<endl;
+// getline(cin, s1);
+//   cout<<"Enter the  substring:"<<endl;
+//   getline(cin, s2);
+//   int n = s1.size();
+//   int m = s2.size();
+//   bool found = false;
+// for(int i=0;i<=n-m;i++){
+//   int j ;
+//   for(j =0;j<m ; j++){
+//     if(s1[i+j]!=s2[j]){
+// break;
+//     }
+//   }
+//   if(j==m){
+//     cout<<i<<" ";
+// found = true;
+//   }
+// }
+// if(!found){
+//   cout<<"The string "<<s2 <<"doesn't lies inside "<<s1;
+// }
+
+// size_t pos = s1.find(s2);
+
+// while(pos!= string::npos){
+//   cout<<pos<<" ";
+//   found = true;
+//   pos= s1.find(s2,pos+1);
+// }
+// if(!found){
+//   cout<<"The string '"<<s2 <<"' doesn't lies inside '"<<s1<<"'";
+// }
+// }
+ 
+  
+//-------------------------------------------------------------------------------------------------------
+/*
+21. Write a program that reads multiple lines of text and finds the frequencies of characters and words.
+*/
+// int main(){
+//   string str;
+//   cout<<"Enter the string: "<<endl;
+//   getline(cin,str);
+//   string sub;
+//   cout<<"Enter the substring: "<<endl;
+//   getline(cin,sub);
+
+
+// }
+//----------------------------------------------------------------------------------------------------------
+/*
+14. Write a program to perform following matrix operations : (i) Addition (ii) Multiplication (iii)
+Transpose (iv) Inverse (vi) Matrix to lower triangle and upper triangle form (vii) Tri-diagonal
+elements (viii) Saddle point and also find how many saddle points in the given matrix(minimum
+in row and maximum in column)
+*/
+// int maxINcols(int j,int n,int c, int mat[][c]){
+//     int x = mat[0][j];
+// int row =0;
+// for(int i=1; i<n;i++){
+
+//   if (mat[i][j]>x){
+//     x = mat[i][j];
+//     row =i;
+//   }
+// }
+// return row;
+// }
+// int minrow(int row, int cols,int c ,int mat[][c]){
+//   int minrow=mat[row][0];
+//   int col=0;
+// for(int i=1;i<cols;i++){
+// if(mat[row][i]>minrow){
+//   col=i;
+//   minrow=mat[row][i];
+// }
+// }
+// return col;
+// }
+
+// int main(){
+// int n1,m1;
+// cout<<"Enter the order of the first matrix: "<<endl;
+// cin>>n1>>m1;
+// int mat1[n1][m1];
+// cout<<"Enter the elements of the martrix:"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//     cin>>mat1[i][j];
+//   }
+// }
+// int n2,m2;
+// cout<<"Enter the order of the second matrix: "<<endl;
+// cin>>n2>>m2;
+
+// int mat2[n2][m2];
+// cout<<"Enter the elements of the martrix:"<<endl;
+// for(int i=0; i<n2;i++){
+//   for(int j=0; j<m2;j++){
+//     cin>>mat2[i][j];
+//   }
+// }
+
+// int add[n1][m2];
+// cout<<"The first given matrix is :"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//    cout<<mat1[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+// cout<<"The second given matrix is :"<<endl;
+// for(int i=0; i<n2;i++){
+//   for(int j=0; j<m2;j++){
+//    cout<<mat2[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+
+// if(n1!=n2 || m1!=m2){
+//   cout<<"The matrix cannot be added because the order of both the matrices are not same"<<endl;
+// }
+// else{
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//     add[i][j]=mat1[i][j]+mat2[i][j];
+//   }
+// }
+// cout<<"The sum of the two matrix mat1+mat2 is:"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m1;j++){
+//    cout<<add[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }}
+// if(m1!=n2){
+//   cout<<"both the matrixes cannot be multiplied because number of column of first matrix is not equal to number of row of second matrix"<<endl;
+// }
+// else{
+// int mult[n1][m2];
+// for(int i=0; i<n1;i++){
+//   for(int j =0; j<m2;j++){
+//     int sum=0;
+//     for(int k =0;k<m1;k++){
+//       sum =sum+(mat1[i][k]*mat2[k][j]);
+//     }
+//     mult[i][j]= sum;
+//   }
+// }
+// cout<<"The product of the two matrix is :"<<endl;
+// for(int i=0; i<n1;i++){
+//   for(int j=0; j<m2;j++){
+//    cout<<mult[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+
+// }
+
+// int Tmat1[m1][n1];
+// int Tmat2[m2][n2];
+// for(int i=0; i<m1;i++){
+//   for(int j =0; j<n1; j++){
+//     Tmat1[i][j]= mat1[j][i];
+//   }
+// }
+// for(int i=0; i<m2;i++){
+//   for(int j =0; j<n2; j++){
+//     Tmat2[i][j]= mat2[j][i];
+//   }
+// }
+// cout<<"The Transpose of first  matrix is :"<<endl;
+// for(int i=0; i<m1;i++){
+//   for(int j=0; j<n1;j++){
+//    cout<<Tmat1[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+// cout<<"The product of the two matrix is :"<<endl;
+// for(int i=0; i<m2;i++){
+//   for(int j=0; j<n2;j++){
+//    cout<<Tmat2[i][j]<<" ";
+//   }
+//   cout<<endl;
+// }
+// cout<<endl;
+
+// // saddle point in first matrix
+//  int saddle=0;
+
+//  for(int i=0; i<n1; i++){
+//   int cols=minrow(i,m1,mat1);
+//   int rows= maxINcols(cols,n1,mat1);
+//   if(i=rows){
+//     saddle++;
+//     cout<<mat1[i][j]<<" ";
+//   }
+//   }
+//   if(saddle==0){
+//     cout<<"There is no saddle points"<<endl;
+//   }
+//  }
+
+
+//-------------------------------------------------------------------------------------------------------------
+/* • Consider a problem to display the digits of a
+positive integer such that each digits is
+separated by two spaces. If 4589 is the input,
+then the display should be 4 5 8 9. */
+
+// void display_digit(int n){
+//   if(n==0){
+//     cout<<"0";
+//     return;
+//   }
+//   if(n<0){
+//     n = abs(n);
+//   }
+//   int digits= log10(n)+1;
+//   cout<<digits<<endl;;
+//   for(int i=digits-1;i>=0;i--){
+// int divisor=round(pow(10,i));
+// int digit = n /divisor;
+
+// cout<<digit<<"  ";
+// n= n %divisor;
+//   }
+//}
+// int main(){
+//   int n;
+//   cin>>n;
+//   display_digits(n);
+// }
+ 
+
+//----------------------------------------------------------------------------------------------------------
+/*
+Write a program to sort the given names in lexicographical order(Alphabetical-order).
+Ex:- abc , abcd, aba , abd
+Result: aba , abc , abcd , abd
+*/
+// int main(){
+//   string s1(2);
+//   string sentence(5);
+//   string stop="yes";
+// s1[0]="sumit";
+// s1[1]="kumar";
+// s1[2]="sah";
+// cout<<s1;
+//   do{
+// cout<<"Enter the string :"<<endl;
+// cin>>s1;
+
+// cout<<"Do you want to stop (yes/no)"<<endl;
+// cin>>stop;
+
+
+//   }while(stop=="yes");
+
+//   cout<<s1;
+// }
+
+
+// -----------------------------------------------------------------------------------------------------
+/*
+Write a c++ program to create a structure student with the data fields; Name, rollno, address and
+marks in 3 subjects for 10 students and display all the students details.. */
+
+//class vote{
+// public:
+// int roll;
+// int age;
+// string name;
+// void display(){
+//     cout<<"Name:"<<name<<endl;
+//     cout<<"Roll Number :"<<roll<<endl;
+//     cout<<"age:"<<age<<endl;
+//     if(age>=18){
+//         cout<<"Eligible for voting"<<endl;
+//     }
+// }
+// };
+// int main(){
+//     int n ;
+//     cout<<"enter the number of voters:";
+//     cin>>n;
+//     vote v[n];
+//     for(int i =0; i<n;i++){
+// cout<<"-----Voter"<<i+1<<"-----"<<endl;
+// cout<<"enter the name:";
+// cin.ignore();
+// getline(cin,v[i].name);
+// cout<<"enter the Roll no:";
+// cin>>v[i].roll;
+// cout<<"enter the age:";
+// cin>>v[i].age;
+//     }
+// for(int i=0; i<n;i++){
+//     cout<<"-----Voter"<<i+1<<"------"<<endl;
+//     v[i].display();
+// }
+
+
+// }
+/*
+
+//-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Tower Of Hanoii 
+void TOH(int n , string scr, string hel, string des){
+  int count=0;
+  if(n==1){
+    cout<<"Transfer the disc1 from "<<scr<<" to "<<des<<endl;5
+    return;
+  }
+ TOH(n-1,scr,des,hel);
+ cout<<"Transfer the disc"<<n<<" from "<<scr<<" to "<<des<<endl;
+ TOH(n-1,hel,scr,des);
+}
+int main(){
+  int n;
+  cout<<" Enter the number of disc:"<<endl;
+  cin>>n;
+  TOH(n,"S","H","D");
+
+  
+// merge sort
+
+// #include<iostream>
+// #include<array>
+// #include<vector>
+// using namespace std;
+// int temp[10000];
+// int i=0;
+// void merge(vector<int>& arr, int low, int mid, int high){
+   
+//     int left= low;
+//     int right= mid+1;
+//     while(left<=mid && right<=high){
+//         if(arr[left]<=arr[right]){
+//             temp[i]=arr[left];
+//             left++;
+//             i++;
+//         }
+//         else{
+//       temp[i]=arr[right];
+//       i++;
+//       right++;       
+//         }
+//     }
+//     while(left<=mid){
+//         temp[i]=arr[left];
+//         i++;
+//         left++;
+//     }
+//     while(right<=high){
+//         temp[i]=arr[right];
+//         i++;
+//         right++;
+//     }
+//     for(int k=low ; k<=high;k++){
+//         arr[k]=temp[k-low];     // why i-low?? --->  you have to go through algorithm 
+//     }
+// }
+// void mergesort(vector<int>& arr, int low, int high){
+//     if(low>=high)
+//     return;
+//      int mid = (low+high) /2;
+//      mergesort(arr, low, mid);
+//      mergesort(arr, mid+1, high);
+//      merge(arr, low, mid, high);
+// }
+// int main(){
+//     int n ;
+//     cout<<"enter the number of elements in array:"<<endl;
+//     cin>>n;
+//     int x;
+//    vector< int> arr;
+//     cout<<" enter the elements of the array:"<<endl;
+//     for(int i =0 ; i<n; i++){
+//         cin>>x;
+//         arr.push_back(x);
+//     }
+//     mergesort(arr, 0, n-1);
+//     for(int i=0 ; i<n; i++){
+//     cout<<arr[i]<<" ";
+//     }
+// }
+

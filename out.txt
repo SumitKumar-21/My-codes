@@ -1,0 +1,3 @@
+Number of alphabets in the Input file is:12
+NUmber of digits int he input file is :11
+Number of special character in the input file is :34
