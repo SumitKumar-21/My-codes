@@ -1,0 +1,49 @@
+Merge sorting in the Linked list
+
+class Solution {
+public:
+ListNode* Getmid(ListNode* head) {
+    ListNode* slow = head;
+    ListNode* fast = head->next;   // <-- FIX
+
+    while (fast != nullptr && fast->next != nullptr) {
+        fast = fast->next->next;
+        slow = slow->next;
+    }
+    return slow;
+}
+ListNode* mergeTwoLists(ListNode* l, ListNode* r) {
+    ListNode* dummy = new ListNode(-1);
+    ListNode* tail = dummy;
+
+    while (l != nullptr && r != nullptr) {
+        if (l->val <= r->val) {
+            tail->next = l;
+            l = l->next;
+        } else {
+            tail->next = r;
+            r = r->next;
+        }
+        tail = tail->next;
+    }
+
+    if (l) tail->next = l;
+    else   tail->next = r;
+
+    return dummy->next;
+}
+
+    ListNode* sortList(ListNode* head) {
+         if(head==nullptr || head->next==nullptr){
+            return head;
+        }
+        ListNode* mid=Getmid(head);
+        ListNode* left=head;
+        ListNode* right = mid->next;
+        mid->next=nullptr;
+               left= sortList(left);
+                right= sortList(right);
+        ListNode* result=mergeTwoLists(left,right);
+        return result;
+    }
+};
