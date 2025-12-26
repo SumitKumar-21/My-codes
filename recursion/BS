@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool BS(int arr[],int s , int e, int k){
+    if(s>=e){
+        if(s==e && arr[s]==k){
+return true;
+        }
+        return false;
+    }
+    int mid= s+(e-s)/2;
+    if(arr[mid]==k){
+        return true;
+    }else{
+        if(arr[mid]>k){
+            bool next= BS(arr,s, mid-1, k);
+            return  next;
+        }else{
+             bool next= BS(arr,mid+1, e, k);
+            return  next;
+        }
+    }
+    
+}
+ int main(){
+    int n;int key;
+     cin>>n;
+     cin>>key;
+     int *arr= new int[n];
+for(int i =0; i<n;i++){
+    cin>>arr[i];
+}
+bool ans = BS(arr,0,n-1,key);
+if(ans){
+    cout<<"key found "<<endl;
+}else{
+    cout<<"Key Not Found"<<endl;
+}
+  }
