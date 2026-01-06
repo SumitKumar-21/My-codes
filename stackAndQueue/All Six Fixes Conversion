@@ -1,0 +1,175 @@
+//  Success is suffix of your hard work
+//                                   - KR
+
+#include<bits/stdc++.h>
+using namespace std;
+int priority(char ch){
+    if(ch == '*' || ch == '/') return 2;
+    if(ch == '+' || ch == '-') return 1;
+    return 0;
+}
+//Infix To Postfix conversion
+string InfixToPostfix(string s){
+    string ans; int i =0;
+    stack<char> st;
+    while(i!=s.length()){
+        if(s[i]=='('){
+            st.push(s[i]);
+        } else if(s[i]==')'){
+            while(st.top()!='('){
+                ans= ans+st.top(); st.pop();
+            }
+            st.pop();
+            
+        }
+        else if((s[i]>='A' && s[i]<='Z') ||(s[i]>='a' && s[i]<='z') ){
+           ans= ans+s[i];
+        }  else{
+            if(!st.empty() && priority(s[i])>priority(st.top()))  st.push(s[i]);
+            else{
+                while(!st.empty() && st.top()!='(' && priority(s[i])<=priority(st.top()) ){
+                    ans= ans+ st.top(); st.pop();
+                }
+                st.push(s[i]);
+            }
+            
+        }
+        i++;
+    }
+    while(!st.empty()){
+        ans=ans+st.top(); st.pop();
+    }
+    return ans;
+}
+// Infix to Prefix conversion
+string InfixToPrefix(string s){
+    string ans;
+    reverse(s.begin(),s.end());
+    for(int i =0; i<s.length();i++){
+        if(s[i]=='(') s[i]=')';
+        else if(s[i]==')') s[i]='(';
+    }
+    
+     stack<char> st; int i =0;
+    while(i!=s.length()){
+        if(s[i]=='('){
+            st.push(s[i]);
+        } else if(s[i]==')'){
+            while(st.top()!='('){
+                ans= ans+st.top(); st.pop();
+            }
+            st.pop();
+            
+        }
+        else if((s[i]>='A' && s[i]<='Z') ||(s[i]>='a' && s[i]<='z') ){
+           ans= ans+s[i];
+        }  else{
+            if(!st.empty() && priority(s[i])>=priority(st.top()))  st.push(s[i]);
+            else{
+                while(!st.empty() && st.top()!='(' && priority(s[i])<priority(st.top()) ){
+                    ans= ans+ st.top(); st.pop();
+                }
+                st.push(s[i]);
+            }
+            
+        }
+        i++;
+    }
+    while(!st.empty()){
+        ans=ans+st.top(); st.pop();
+    }
+    reverse(ans.begin(),ans.end());
+    return ans;
+}
+//Postfix To infix
+string PostfixToInfix(string s){
+    stack<string> st; int i =0;
+    while(i!=s.length()){
+        if((s[i]>='A' && s[i]<='Z') ||(s[i]>='a' && s[i]<='z')){
+           
+            st.push(string(1, s[i]));
+
+        }else{
+            string b =st.top(); st.pop();
+            string a=st.top(); st.pop();
+            string p="(" +a+s[i]+b +")";
+            st.push(p);
+        }
+        i++;
+    }
+    return st.top();
+}
+//Prefix to Infix 
+string PrefixToInfix(string s){
+    string ans ; stack<string> st; int i = s.length()-1;
+    while(i>=0){
+        if(s[i]=='*' || s[i]=='/'|| s[i]=='+'|| s[i]=='-'){
+            if(!st.empty()){  string t1=st.top(); st.pop(); string t2= st.top(); st.pop();
+            string p="("+ t1+s[i]+t2+")";  st.push(p);}
+        } else{
+            st.push(string(1,s[i]));
+        } i--;
+    }
+    ans= st.top();
+    return ans;
+}
+//Postfix To Prefix 
+string PostfixToPrefix(string s){
+ string ans ; stack<string> st; int i = 0;
+    while(i!=s.length()){
+        if(s[i]=='*' || s[i]=='/'|| s[i]=='+'|| s[i]=='-'){
+            if(!st.empty()){  string t1=st.top(); st.pop(); string t2= st.top(); st.pop();
+            string p= s[i]+t2+t1;  st.push(p);}
+        } else{
+            st.push(string(1,s[i]));
+        } i++;
+    }
+    ans= st.top();
+    return ans; 
+}
+//Prefix To Postfix
+string PrefixToPostfix(string s){
+ string ans ; stack<string> st;int i = s.length()-1;
+   while(i>=0){
+        if(s[i]=='*' || s[i]=='/'|| s[i]=='+'|| s[i]=='-'){
+            if(!st.empty()){  string t1=st.top(); st.pop(); string t2= st.top(); st.pop();
+            string p= t2+t1+s[i];  st.push(p);}
+        } else{
+            st.push(string(1,s[i]));
+        } i--;
+    }
+    ans= st.top();
+    return ans; 
+}
+int main(){
+    string s;
+    cin>>s;
+    string ans1 = InfixToPostfix(s);
+    string ans2 =InfixToPrefix(s);
+    string ans3 =PrefixToInfix(ans2);
+    string ans4=PostfixToInfix(ans1);
+    string ans5=PostfixToPrefix(ans1);
+    string ans6=PrefixToPostfix(ans2);
+
+      for(int i=0;i<ans1.size();i++){
+        cout<<ans1[i]<<" ";
+    } cout<<endl;
+       for(int i=0;i<ans2.size();i++){
+        cout<<ans2[i]<<" ";
+    } cout<<endl;
+       for(int i=0;i<ans3.size();i++){
+        cout<<ans3[i]<<" ";
+    } cout<<endl;
+     for(int i=0;i<ans4.size();i++){
+        cout<<ans4[i]<<" ";
+    } cout<<endl;
+     for(int i=0;i<ans5.size();i++){
+        cout<<ans5[i]<<" ";
+    } cout<<endl;
+     for(int i=0;i<ans6.size();i++){
+        cout<<ans6[i]<<" ";
+    } cout<<endl;
+
+}
+
+
